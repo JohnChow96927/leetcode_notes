@@ -17,7 +17,21 @@ age[y] > 100 && age[x] < 100
 链接：https://leetcode-cn.com/problems/friends-of-appropriate-ages
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 """
-"""
-需求分析:
-1. x向y发送好友请求的条件是: 
-"""
+
+
+def numFriendRequests(ages) -> int:
+    n = len(ages)
+    sorted_ages = sorted(ages)
+    left = right = ans = 0
+    for age in sorted_ages:
+        if age < 15:
+            continue
+        while sorted_ages[left] <= 0.5 * age + 7:
+            left += 1
+        while right + 1 < n and sorted_ages[right + 1] <= age:
+            right += 1
+        ans += right - left
+    return ans
+
+result = numFriendRequests([101, 56, 69, 48, 30])
+print(result)
