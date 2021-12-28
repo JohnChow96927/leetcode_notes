@@ -1,7 +1,7 @@
 class Trie:
     def __init__(self):
         self.children = [None] * 26  # 初始化26个空子节点, 预备存放a-z
-        self.isEnd = False  # 
+        self.isEnd = False
 
     def insert(self, word: str) -> None:
         node = self
