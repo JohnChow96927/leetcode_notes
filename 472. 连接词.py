@@ -14,8 +14,10 @@ from typing import List
 class Solution:
     @staticmethod
     def findAllConcatenatedWordsInADict(words: List[str]) -> List[str]:
+        words.sort(key=len)
+        print(words)
         result = []
-        
+
         nominee = ''
         return result
 
